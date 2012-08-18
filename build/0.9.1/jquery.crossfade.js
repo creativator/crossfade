@@ -1,0 +1,11 @@
+/**
+ * CrossFade Gallery - Image gallery for jQuery
+ * Written by Akop Kesheshyan
+ * Twitter: http://twitter.com/creativator_ru
+ *
+ * @author Creativator Media
+ * @site http://creativator.net/
+ * @version 0.9.1
+ *
+ **/
+(function(a){a.extend({crossFadeGallery:{object:{},offset:0,timer:true,settings:{speed:1000,auto:5,onLoad:false,onChange:false},init:function(d,c){this.object=d;this.settings=a.extend(this.settings,c);a(this.object).css({listStyle:"none",margin:0,padding:0,position:"relative",overflow:"hidden"});var b=a("li",this.object).length;a("li",this.object).each(function(e){a(this).css({position:"absolute",zIndex:b-e})}).filter(":first").addClass("active");if(this.settings.auto){a(this.object).hover(function(){a.crossFadeGallery.stopSlideShow()},function(){a.crossFadeGallery.playSlideShow()});this.playSlideShow()}if(a.isFunction(this.settings.onLoad)){return this.settings.onLoad(this)}},nextImage:function(){(a(".active",this.object).next().size())?this.setImage(this.offset+1):this.setImage(0)},prevImage:function(){(a(".active",this.object).prev().size())?this.setImage(this.offset-1):this.setImage(0)},setImage:function(b){if(this.offset<b){a("li",this.object).each(function(c){if(a.crossFadeGallery.offset!=c&&c<b){a(this).hide()}});a(".active",this.object).fadeOut(this.settings.speed,function(){a(this).removeClass("active");a(a("li",a.crossFadeGallery.object)[b]).addClass("active");a.crossFadeGallery.offset=b})}if(this.offset>b){a(a("li",this.object)[b]).fadeIn(this.settings.speed,function(){a(".active",a.crossFadeGallery.object).removeClass("active");a(this).addClass("active").nextAll().show();a.crossFadeGallery.offset=b})}if(a.isFunction(this.settings.onChange)){return this.settings.onChange(b,this)}},stopSlideShow:function(){if(this.timer){window.clearTimeout(this.timer)}},playSlideShow:function(){this.timer=window.setTimeout(function(){console.log("start playing slideshow");a.crossFadeGallery.playSlideShow();a.crossFadeGallery.nextImage()},a.crossFadeGallery.settings.auto*1000)}}});a.extend(a.fn,{crossFadeGallery:function(b){a.crossFadeGallery.init(this,b)}})})(jQuery);

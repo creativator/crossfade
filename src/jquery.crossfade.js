@@ -5,11 +5,7 @@
  *
  * @author Creativator Media
  * @site http://creativator.net/
-<<<<<<< HEAD
  * @version 0.9.2
-=======
- * @version 0.9.1
->>>>>>> origin/master
  *
  **/
 (function($){		
@@ -21,12 +17,9 @@
 			settings:{
 				speed: 1000,
 				auto: 5,
-<<<<<<< HEAD
 				width:'640px',
 				height:'480px',
 				stopOnHover:true,
-=======
->>>>>>> origin/master
 				onLoad:false,
 				onChange:false
 			},
@@ -34,18 +27,13 @@
 				this.object = $this;					
 				this.settings = $.extend(this.settings,$settings);				
 							
-<<<<<<< HEAD
 				$(this.object).css({listStyle:'none',margin:0,padding:0,position:'relative',overflow:'hidden',width:this.settings.width,height:this.settings.height});
-=======
-				$(this.object).css({listStyle:'none',margin:0,padding:0,position:'relative',overflow:'hidden'});
->>>>>>> origin/master
 				
 				var $size = $('li',this.object).length;
 				
 				$('li',this.object).each(function(i){ $(this).css({position:'absolute',zIndex:$size-i}); }).filter(':first').addClass('active');
 				
 				if(this.settings.auto){
-<<<<<<< HEAD
 					if(this.settings.stopOnHover){
 						$(this.object).hover(function(){
 							$.crossFadeGallery.stopSlideShow();
@@ -53,16 +41,6 @@
 							$.crossFadeGallery.playSlideShow();
 						});
 					}					
-=======
-					$(this.object).hover(
-					function(){
-						$.crossFadeGallery.stopSlideShow();
-					},
-					function(){
-						$.crossFadeGallery.playSlideShow();
-					});
-										
->>>>>>> origin/master
 					this.playSlideShow();
 				}				
 				
@@ -110,10 +88,6 @@
 			},
 			playSlideShow:function(){
 				this.timer = window.setTimeout(function(){
-<<<<<<< HEAD
-=======
-					console.log('start playing slideshow'); 
->>>>>>> origin/master
 					$.crossFadeGallery.playSlideShow(); 
 					$.crossFadeGallery.nextImage();
 				},$.crossFadeGallery.settings.auto*1000);

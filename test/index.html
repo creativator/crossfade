@@ -5,10 +5,14 @@
 <title>CrossFade - Basic example</title>
 
 	<script type="text/javascript" src="jquery.js"></script>
-    <script type="text/javascript" src="../src/jquery.crossfade.js"></script>
+    <!-- <script type="text/javascript" src="../src/jquery.crossfade.js"></script> -->
+    <script type="text/javascript" src="../build/0.9.6/jquery.crossfade.js"></script>
 	<script>
 	$(document).ready(function(){				
-		$('#myGallery').crossFadeGallery({width:'960px',height:'360px'});				
+		$('#myGallery').crossFadeGallery({
+			width:960,
+			height:360
+		});				
 	});
 	</script>
 
@@ -16,13 +20,15 @@
 
 </head>
 <body>
+<div style="width:1000px;margin:30px auto;">
 	<ul id="myGallery">
-		<li><img src="images/lights3.jpg" alt="" /></li>
-		<li><img src="images/bw2.jpg" alt="" /></li>
-		<li><img src="images/lights2.jpg" alt="" /></li>
-		<li><img src="images/bw1.jpg" alt="" /></li>
-		<li><img src="images/lights1.jpg" alt="" /></li>
+		<li><img src="images/lights3.jpg" title="this is first image" alt="" /></li>
+		<li><img src="images/bw2.jpg" title="this is second image" alt="" /></li>
+		<li><img src="images/lights2.jpg" title="this is image 3" alt="" /></li>
+		<li><img src="images/bw1.jpg" title="this is image 4" alt="" /></li>
+		<li><img src="images/lights1.jpg" title="this is 5 image" alt="" /></li>
 		<li><img src="images/bw3.jpg" alt="" /></li>
 	</ul>
+</div>
 </body>
 </html>
